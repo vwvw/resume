@@ -55,6 +55,7 @@
 \usepackage{helvet}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{rotating}
 \usepackage{xcolor}
 \hypersetup {
     colorlinks=false,
@@ -63,7 +64,14 @@
     urlcolor=colorlink,
 }
 \usepackage[a4paper, left=12mm, right=45mm, top=15mm, bottom=15mm]{geometry}
+\usepackage[fristpage=true, color=black, opacity=0.5, angle=90]{background}
+
 \begin{document}
+
+\SetBgContents{As of \today. Latest: bit.ly/cvNicolas}% Set contents
+\SetBgPosition{ \textwidth / 0.8 - 0.8cm,-23cm/0.8}% Select location
+\SetBgScale{0.8}% Select scale factor of logo
+
 \newsectionwidth{26mm}
 %-------------------------------------------------------------------------------
 %	NAME AND ADDRESS SECTION
@@ -88,7 +96,7 @@
 \section{Education}
 \cusemph{\href{https://www.inf.ethz.ch/}{Eidgen\"ossische Technische Hochschule Z\"urich (ETHZ)}} - Switzerland \timeline{2016-2019}\\
 {\sl Master of Science ETH in Computer Science} (expected)\\
-Specialisation in Information Security\\
+Specialization in Information Security\\
 \cusemph{\href{https://www.ece.cmu.edu/}{Carnegie Mellon University (CMU)}} - Pittsburgh PA, USA \timeline{2015-2016}\\
 Exchange Program\\
 \cusemph{\href{https://ic.epfl.ch/en}{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}} - Switzerland  \timeline{2013-2016}\\
@@ -210,8 +218,5 @@ Exchange Program\\
 \section{Activities}
 \cusemph{\href{https://www.interjeunes.net/explosion-camp/}{Winter Camp Leader}} - Grimentz, CH \timeline{2014 \& 2017}\\
 Camp with 110 teenagers/young adults during a week. Built a team, prepared the event, managed the team and was in charge of the authority during the week.\\
-
-
-%-------------------------------------------------------------------------------
 \end{resume}
 \end{document}
