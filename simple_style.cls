@@ -32,6 +32,8 @@
 % Changes for general improvement -- Daniel Marks (Feb 28, 2015)
 %
 % Further changes -- Rohan Bavishi (Sep 20, 2016)
+%
+% Further changes -- Nicolas Badoux (Oct 29, 2018)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,12 +215,14 @@
 \newtoks\@ta			    	% used by \@append
 \newtoks\undefined@token\undefined@token={}
 
-\usepackage{xcolor}
+\usepackage[]{xcolor} % add monochrome to go black & white
 \usepackage{calc}
 \usepackage{tabu}
 
+%\usepackage{changepage}
+
 %\definecolor{colorlink}{HTML}{006699}
-\definecolor{colorlink}{HTML}{224191}
+\definecolor{colorlink}{HTML}{003366}
 \definecolor{lightestgray}{HTML}{A9A9A9}
 \definecolor{lightergray}{HTML}{626262}
 \definecolor{lightgray}{HTML}{595959}
@@ -231,17 +235,23 @@
 % or the two address on opposite sides of the page
 
 \def\@printcentername{\begingroup
-  {\namefont\@name\\\\\qualificationfont\@qualification\par}
+  %{\namefont\@name\\\\\qualificationfont\@qualification\par}
+  {\namefont\@name}\smallskip\\
+  {\emailfont\@emailone \hspace{1ex}/\hspace{0.1ex} \@phone}\\\par
+  
   \@ifundefined{@addressone}{%
     % do nothing
   }{
-	  \vspace{-16ex}
+	  \vspace{-17ex}
 	  \leavevmode\hbox to 
 	  \textwidth{\hfil\@detailsbox{\@addressone\\
-			               \@emailone\ $|$ \@emailtwo\\
-				       Webpage : \@website\\
-				       Github : \@github\\
-				       \@phone\\\\}}\par
+			         %      \@emailone\ %$|$ \@emailtwo
+			          %     \\
+				       %Webpage : \@website\\
+				       %Github : \@github\\
+				    %   \@phone\\
+				       \@citizenship\\
+				       \@birthdate\\\\}}\par
   }%
   % Add a horizontal line after name
   \color{lightestgray}\fullline
@@ -251,27 +261,28 @@
 % this is used to print the name and address at the top of
 % the page with a hline in between
 
-\def\namefont{\huge\bf}
+\def\namefont{\Huge\bf}
 \def\qualificationfont{\small\sc}
-\def\detailsfont{\footnotesize}
-\def\@linename{\begingroup
-  \def\\{ : }
-  {\namefont\@name}
-  \vskip 2pt
-  \fullline
-  \vskip 2pt
-  % where do you live?
-  \@ifundefined{@addressone}{%
-  % do nothing
-  }{
-    \leavevmode\hbox to \textwidth
-      {\hfill\vbox{\hbox{\@addressone}
-		   \hbox{\@addresstwo}
-		   \hbox{\@addressthree}
-		  }
-      }\par
-  }
-\endgroup}
+\def\emailfont{\normalsize}
+\def\detailsfont{\small}
+% \def\@linename{\begingroup
+%   \def\\{ : }
+%   {\namefont\@name}
+%   \vskip 2pt
+%   \fullline
+%   \vskip 2pt
+%   % where do you live?
+%   \@ifundefined{@addressone}{%
+%   % do nothing
+%   }{
+%     \leavevmode\hbox to \textwidth
+%       {\hfill\vbox{\hbox{\@addressone}
+% 		   \hbox{\@addresstwo}
+% 		   \hbox{\@addressthree}
+% 		  }
+%       }\par
+%   }
+% \endgroup}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HEADINGS:
@@ -295,13 +306,13 @@
 % unless you really understand all of this but it is not
 % hard.  Either way, it can only be executed once
 %
-\def\sectionfont{\large\sc}
+\def\sectionfont{\large\sc\raggedleft}
 \newdimen\sectionwidth
 \newskip\sectionskip
 \newdimen\resumewidth
 
-\resumewidth=7.15in
-\sectionskip=3.5ex plus 1ex minus -.2ex % values stolen from LaTeX
+\resumewidth=100mm
+\sectionskip=0.5ex plus 1ex minus -.2ex % values stolen from LaTeX
 
 \def\newsectionwidth#1{%
 		     \sectionwidth=#1
@@ -453,9 +464,9 @@
 % 2) the section heading is entirely in the left margin (possibly taking 
 % multiple lines) with the body of the text next to it 
 \let\@@section\relax
-\def\ds@overlapped{\ifx\@@section\relax\newsectionwidth{0.5in}\let
+\def\ds@overlapped{\ifx\@@section\relax\newsectionwidth{15mm}\let
   \@@section\unboxed@sectiontitle\fi}
-\def\ds@margin{\ifx\@@section\relax\newsectionwidth{1.3in}\let
+\def\ds@margin{\ifx\@@section\relax\newsectionwidth{32mm}\let
   \@@section\boxed@sectiontitle\fi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -485,8 +496,8 @@
 
 \def\fullline{
   \textcolor{lightergray}{\hspace*{-\hoffset}\rule{\sectionwidth}{2.5pt}}
-  \textcolor{lightestgray}{\hspace*{0pt}\rule{\resumewidth-\sectionwidth}{2.5pt}}
-  \vspace{-3ex}
+  \textcolor{lightestgray}{\hspace*{0pt}\rule{\textwidth-\sectionwidth}{2.5pt}}
+  \vspace{-2.5ex}
 }
 
 \def\sectionline{
@@ -503,13 +514,16 @@
 				#1
 			\end{tabular}}}}
 
-\def\@descriptionbox#1{\textcolor{verydarkgray}{
+\def\descriptionbox#1{\textcolor{verydarkgray}{
 			\taburulecolor{lightestgray}	
-			\hspace{0.5ex}
-			{\tabulinesep=0.8mm
+			{\tabulinesep=0.5mm
 			\begin{tabu} to \sectionwidth {p{\textwidth-3ex}}
+			\setlength{\parindent}{-1.1ex}
 				#1
-			\end{tabu}}}}
+			\end{tabu}}}
+    			\noindent
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % use this to define your name
@@ -520,12 +534,14 @@
 \def\emailtwo#1{\def\@emailtwo{\href{mailto:#1}{#1}}}
 \def\website#1#2{\def\@website{\href{#1}{#2}}}
 \def\github#1#2{\def\@github{\href{#1}{#2}}}
-\def\phone#1{\def\@phone{#1}}
+\def\phone#1{\def\@phone{\href{tel:#1}{#1}}}
+\def\citizenship#1{\def\@citizenship{#1}}
+\def\birthdate#1{\def\@birthdate{#1}}
 \def\cusemph#1{\textcolor{darkgray}{\textbf{#1}}}
 \def\timeline#1{\hfill\textcolor{midgray}{\textit{#1}}}
-\def\supervisor#1{\textcolor{midgray}{\textit{#1}}}
+%\def\supervisor#1{\textcolor{midgray}{\textit{#1}}}
 \def\duration#1{\hfill\textcolor{midgray}{\textit{#1}}}
-\def\describe#1{\small\@descriptionbox{#1}}
+\def\describe#1{\small\descriptionbox{#1}}
 
 \def\@name{}
 \def\@qualification{}
@@ -534,6 +550,8 @@
 \def\@website{}
 \def\@github{}
 \def\@phone{}
+\def\@citizenship{}
+\def\@birthdate{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % use this to define your address, this may be called more than once.
@@ -691,16 +709,12 @@
 
 \newenvironment{project}{
   \renewcommand{\title}[1]{\def\projtitle{##1}}
-  \renewcommand{\supervisor}[1]{\def\projsupervisor{##1}}
+  \renewcommand{\location}[1]{\def\projlocation{##1}}
   \renewcommand{\duration}[1]{\def\projduration{##1}}
   \renewcommand{\description}[1]{\def\projdesc{##1}}
 }{
-	\cusemph{\projtitle}\\
-	\textcolor{darkgray}{\textit{\projsupervisor}} 
-	\hfill\textcolor{darkgray}{\textit{\projduration}}
-	\vspace{1ex}\\
-	\small\@descriptionbox{\projdesc}
-	\vspace{2ex}\\
+	\cusemph{\projtitle}, \projlocation \hfill\textcolor{darkgray}{\textit{\projduration}}\\
+	\descriptionbox{\projdesc}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -802,23 +816,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % put the actual job descriptions here
-% \begin{postion} ... \end{position}
-% in the ... describe the position.
-% don't put the \dates \location etc in here. define them before hand
-\newenvironment{position}%
-  {%
-   \begingroup
-     \par
-       \the\tabular@head
-%     \addpenalty{-\@secpenalty}% bad place for a page break
-     \penalty -\@secpenalty % bad place for a page break
-     \penalty 10000
-     \ignorespaces
-  }{%
-       \the\tabular@tail
-%     \addpenalty{\@secpenalty}% good place for a page break
-     \penalty \@secpenalty % good place for a page break
-    \endgroup
+\newenvironment{position}{
+  \renewcommand{\employer}[1]{\def\projcompany{##1}}
+  \renewcommand{\title}[1]{\def\projtitle{##1}}
+  \renewcommand{\location}[1]{\def\projlocation{##1}}
+  \renewcommand{\duration}[1]{\def\projduration{##1}}
+  \renewcommand{\description}[1]{\def\projdesc{##1}}
+}{
+	\cusemph{\projcompany} - \projtitle, \projlocation \hfill\textcolor{darkgray}{\textit{\projduration}}\\
+	\descriptionbox{\projdesc}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
