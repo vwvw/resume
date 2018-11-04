@@ -49,7 +49,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[mm, 11pt]{simple_style}  
+\documentclass[mm]{simple_style}  
 
 % Default font is the helvetica postscript font
 \usepackage{helvet}
@@ -57,14 +57,15 @@
 \usepackage{url}
 \usepackage{xcolor}
 \hypersetup {
-    colorlinks=false,
+    colorlinks=true,
     linkcolor=colorlink,
     filecolor=magenta,      
     urlcolor=colorlink,
 }
 \usepackage[a4paper, left=12mm, right=45mm, top=15mm, bottom=15mm]{geometry}
+
 \begin{document}
-\newsectionwidth{26mm}
+
 %-------------------------------------------------------------------------------
 %	NAME AND ADDRESS SECTION
 %-------------------------------------------------------------------------------
@@ -75,8 +76,8 @@
 %\website{http://home.iitk.ac.in/~rbavishi}{\url{home.iitk.ac.in/~rbavishi}}
 %\github{https://github.com/rbavishi}{\url{github.com/rbavishi}}
 \phone{+41 79 914 00 47}
-\citizenship{Swiss citizen}
-\birthdate{Born 06.11.1994}
+\citizenship{Citoyen Suisse}
+\birthdate{n\'e le 06.11.1994}
 
 \address{\href{https://goo.gl/maps/bxwsN3DiRHF2}{Grand-Rue 8}
     \\\href{https://goo.gl/maps/bxwsN3DiRHF2}{1315} \href{https://goo.gl/maps/bxwsN3DiRHF2}{La Sarraz}
@@ -85,61 +86,60 @@
 
 \begin{resume}
 %-------------------------------------------------------------------------------
-\section{Education}
-\cusemph{\href{https://www.inf.ethz.ch/}{Eidgen\"ossische Technische Hochschule Z\"urich (ETHZ)}} - Switzerland \timeline{2016-2019}\\
-{\sl Master of Science ETH in Computer Science} (expected)\\
-Specialisation in Information Security\\
-\cusemph{\href{https://www.ece.cmu.edu/}{Carnegie Mellon University (CMU)}} - Pittsburgh PA, USA \timeline{2015-2016}\\
-Exchange Program\\
-\cusemph{\href{https://ic.epfl.ch/en}{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}} - Switzerland  \timeline{2013-2016}\\
-{\sl Bachelor in Communication Sciences}, GPA: 5.26 / 6\\
+\section{\'Education}
+\cusemph{\href{https://www.inf.ethz.ch/}{Eidgen\"ossische Technische Hochschule Z\"urich (ETHZ)}} - Suisse \timeline{2016-2019}\\
+{\sl Master of Science ETH in Computer Science} (anticip\'e)\\
+Sp\'ecialisation en s\'ecurit\'e informatique\\
+\cusemph{\href{https://www.ece.cmu.edu/}{Carnegie Mellon University (CMU)}} - Pittsburgh PA - USA \timeline{2015-2016}\\
+Programme d'\'echange\\
+\cusemph{\href{https://ic.epfl.ch/en}{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}} - Suisse  \timeline{2013-2016}\\
+{\sl Bachelor en Syst\`emes de communication}\\Moyenne g\'en\'erale: 5.26 / 6\\
 \sectionline
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 %	RESEARCH SECTION
 %-------------------------------------------------------------------------------
-\section{Work Experience}
+\section{Exp\'erience\\professionelle}
 \begin{position}
-    \employer{\href{https://chainsolutions.com/}{ChainSolutions}}
+    \employer{\href{https://chainsolutions.com/}{Chainsolutions}}
     \title{Blockchain Consultant}
-    \location{Z\"urich, CH}
-    \duration{Jan' - June 2018 @ 20\%}
+    \location{Z\"urich}
+    \duration{Jan' - Juin 2018 (@ 20\%)}
     \description{
-        -\,Undertook the conception of the technical foundations for different clients project.\par
-        -\,Designed part of a global self-sovereign identity management system.}
+        -\,Design d'architecture pour diff\'erents services pour des clients avec un focus sur la confidentialit\'e.\\
+        \hspace{-1.1ex}-\,Refl\'ections autour de la gestion d'identit\'e digitale.}
 \end{position}\\
 \begin{position}
-    \employer{\href{https://compassion.ch}{Compassion Suisse}\normalfont{, NGO}}
-    \title{Software Engineer}
-    \location{Yverdon, CH}
-    \duration{Mar' - May 2018}
+    \employer{\href{https://compassion.ch}{Compassion Suisse}, ONG}
+    \title{D\'eveloppeur (Service Civil)}
+    \location{Yverdon}
+    \duration{Mars - Mai 2018}
     \description{
-        -\,Contributed to  \href{https://github.com/CompassionCH/compassion-switzerland}{opensource} modules for the \href{https://www.odoo.com/}{Odoo} ERP. Written in Python in an Agile team as part of my mandatory Swiss civil service.
+        -\,Ajout de module en Python à l'ERP \href{https://www.odoo.com/}{Odoo}. Fonctionnement Agile et travaille \href{https://github.com/CompassionCH/compassion-switzerland}{open-source}.
     }
 \end{position}\\
 \begin{position}
     \employer{\href{https://ergon.ch/en}{Ergon Informatik}}
-    \title{Security Engineer Intern}
-    \location{Z\"urich, CH}
-    \duration{Sept' 2017 - Mar' 2018 @ 60\%}
+    \title{Security Engineer stagiaire}
+    \location{Z\"urich}
+    \duration{Sept' 2017 - Mars 2018 (@ 60\%)}
     \description{
-        -\,Development in Python of a blackbox fuzzer to improve security of Ergon \href{https://www.airlock.com/en/products/airlock-waf/}{Web Application Firewall}, Airlock.\par
-        -\,Use of \href{https://gitlab.com/akihe/radamsa}{Radamsa} to generate malformed HTTP multipart requests resulting in the correction of multiple logic bugs.
+        -\,D\'eveloppement, en Python, d'un outil de blackbox fuzzing pour am\'eliorer la s\'ecurit\'e du \href{https://www.airlock.com/en/products/airlock-waf/}{Web Application Firewall}. Analyse du support des requ\^etes HTTP Multipart. D\'etection de plusieurs erreurs logiques qui auraient pu servir \`a contourner le WAF.
     }
 \end{position}\\
 \begin{position}
     \employer{\href{https://www.morganstanley.com/}{Morgan Stanley}}
     \title{Technology Summer Analyst}
-    \location{London, UK}
-    \duration{June - Aug' 2016}
+    \location{Londres, UK}
+    \duration{Juin - Ao\^ut 2016}
     \description{
-        -\,Developed customizable charts providing visualization of the statistics of the Architecture Security team.\par
-        -\,Identified the important charts and use cases. Implemented charts receiving data from two different services.\par
-        -\,Back-end in Java using myBatis, front-end in Angular with help of Highcharts.
+        -\,D\'eveloppement de graphiques personnalisables pour analyser les statistiques au sein de l'\'equipe Architecture Security.\\
+        \hspace{-1.1ex}-\,Identification des graphiques pertinents et des besoins du management. Impl\'ementation en combinant deux sources de donn\'ees diff\'erentes.\\
+        \hspace{-1.1ex}-\,Backend construit en Java avec myBatis, frontend en AngularJS et Highcharts.
     }
 \end{position}\\
 \sectionline
-\section{Relevant courses}
+\section{Cours suivis}
     \begin{tabular}{lllll}
         \href{http://www.syssec.ethz.ch/education/sown/sown_AS16.html}{Security of Wireless Network} & \href{http://www.syssec.ethz.ch/education/system_security/system_security_as16.html}{System Security}\\
         \href{https://netsec.ethz.ch/courses/netsec-2016/}{Network Security} & \href{http://www.infsec.ethz.ch/education/as2016.html}{Applied Security Lab} \\
@@ -149,65 +149,67 @@ Exchange Program\\
 %-------------------------------------------------------------------------------
 %	COMPUTER SKILLS SECTION
 %-------------------------------------------------------------------------------
-\section{Skills}
-\cusemph{Programming Languages}: Python, Java, Matlab, Solidity, \LaTeX\\
-\cusemph{Spoken Languages}: French (native), English, Swiss-German, German\\
+\section{Comp\'etences}
+\cusemph{Languages de programmation}: Python, Java, Matlab, Solidity, \LaTeX\\
+\cusemph{Langues parl\'ees}: Fran\c{c}ais (maternelle), anglais, suisse-allemand, allemand\\
 \sectionline
-\section{Projects}
+\section{Projets}
 
 \begin{project}
-  \title{Improving \href{https://github.com/HexHive/T-Fuzz}{T-Fuzz} through code pruning}
-  \duration{Sept' 2018 - Ongoing}
+  \title{Am\'elioration de \href{https://github.com/HexHive/T-Fuzz}{T-Fuzz} \`a l'aide d'\'elagage de code}
+  \duration{Sept' 2018 - Actuel}
   \location{EPFL}
   \description{
-	-\,Improvement in the code mutator to detect and remove computationally expensive or unnecessary program code.\par
-	-\,Written in Python as my Master Thesis under the supervision of \href{https://nebelwelt.net/}{Prof. Mathias Payer}
+	-\,Augmentaiton des capacit\'es du mutateur de programe pour enelever des voies ch\`eres computationellement ou inutiles.\par
+	-\,\'Ecrit en Python et publi\'e avec Docker sous la supervsion de  \textcolor{darkgray}{\href{https://nebelwelt.net/}{Prof. Mathias Payer}}
   }
 \end{project}
 \begin{project}
   \title{\href{https://www.ethz.ch/en/the-eth-zurich/global/global-network/eth-studios/new-york-security-challenge-2018.html}{Bloomberg New York Security Challenge}}
-  \duration{June 2018}
-  \location{New York, USA}
+  \duration{Juin 2018}
+  \location{NY}
   \description{
-    -\,As a winner of \href{https://blogs.ethz.ch/ETHambassadors/2018/07/26/coding-challenge-inside-bloomberg/}{ETH Codecon}, participated in a week long project at Bloomberg \href{https://www.bloomberg.com/careers/technology/}{CTO Office}, analyzing network traces of microservices for security anomalies.\\
+    - Comme l'un des gagnants de l'\href{https://blogs.ethz.ch/ETHambassadors/2018/07/26/coding-challenge-inside-bloomberg/}{ETH Codecon}, participation à un projet d'une semaine au sein du \href{https://www.bloomberg.com/careers/technology/}{CTO Office} consistant à l'analyse et la d\'etection d'anomalies dans les traces r\'eseaux de microservices.\\
   }\\
 \end{project}
 \begin{project}
-  \title{\href{https://github.com/vwvw/Ethereum-RingCT}{RingCT in an Ethereum smart contract}}
-  \duration{Mar' - Sept' 2017}
+  \title{\href{https://github.com/vwvw/Ethereum-RingCT}{RingCT dans un smart contract Ethereum}}
+  \duration{Mars - Sept' 2017}
   \location{ETHZ}
   \description{
-	-\,Implemented in Solidity a smart contract executing Monero-like confidential transactions.\par
-	-\,Part of an introduction to Research under the supervision of \href{http://arthurgervais.com/}{Prof. Arthur Gervais}.\\
+	-\,Impl\'ementation en Solidity d’un smart contract offrant des paiements anonymes similaire \`a ceux de Monero.\par
+	-\,Projet effectu\'e dans le cadre de l’introduction \`a la recherche sous la supervision de \textcolor{darkgray}{\href{http://arthurgervais.com/}{Prof. Arthur Gervais}}.\\
   }\\
 \end{project}
 \begin{project}
-  \title{\href{https://github.com/vwvw/Greenheater}{Greenheater - a smart electric heater}}
-  \duration{Jan' - May 2016}
+  \title{\href{https://github.com/vwvw/Greenheater}{Greenheater - un chauffage \'electrique intelligent}}
+  \duration{Jan' - Mai 2016}
   \location{CMU}
   \description{
-	-\,Automated a personal space heater to take advantage of the periods where the user is not in the room to save electricity without impacting his comfort.\par
-	-\,Written mostly in Python with prediction done in Matlab.\\
+	-\,Automatisation d’un chauffage \'electrique d’appoint profitant des p\'eriodes d’absences pour \'economiser de l’\'energie sans impacter le confort.\par
+	-\,\'Ecrit en Python avec l’apprentissage automatique effectu\'e sur Matlab.\\
+  }\\
+\end{project}
+\begin{project}
+  \title{Transpondeur sans fil sur transmission hertzienne}
+  \duration{Aug' - Dec' 2015}
+  \location{CMU}
+  \description{
+	-\,Programmation d’un syst\`eme de communication digital capable d’envoyer plusieurs dizaines de milliers de bits par seconde sans erreur.\par
+	-\,\'Ecrit en Matlab dans le but de d\'ecouvrir diff\'erents principes de communication digitale.\\
   }\\
 \end{project}\\
-% \begin{project}
-%   \title{Transpondeur sans fil sur transmission hertzienne}
-%   \duration{Aug' - Dec' 2015}
-%   \location{CMU}
-%   \description{
-% 	-\,Programmation d’un syst\`eme de communication digital capable d’envoyer plusieurs dizaines de milliers de bits par seconde sans erreur.\\
-% 	\hspace{-1.1ex}-\,\'Ecrit en Matlab dans le but de d\'ecouvrir diff\'erents principes de communication digitale.\\
-%   }\\
-% \end{project}\\
 \sectionline
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
 %	Interests
 %-------------------------------------------------------------------------------
-\section{Activities}
-\cusemph{\href{https://www.interjeunes.net/explosion-camp/}{Winter Camp Leader}}, Grimentz, \timeline{2014 \& 2017}\\
-Camp with 110 teenagers/young adults during a week. Built a team, prepared the event, managed the team and was in charge of the authority during the week.\\
+\section{Activit\'es}
+\cusemph{\href{https://www.interjeunes.net/explosion-camp/}{Directeur de camp de ski}}, Grimentz, \timeline{2014 \& 2017}\\
+Direction et planification d’un camp avec 110 adolescents et jeunes adultes durant une semaine. Gestion d'\'equipe de responsables et du bon d\'eroulement du camp.\\
+\cusemph{Responsable de \href{http://www.gbeu.ch/}{Groupe Biblique}}, EPFL, \timeline{2014-2015}\\
+Responsable d'un groupe de discussion autour de la Bible consitu\'e d'\'etudiants de l'EPFL.
 
 
 %-------------------------------------------------------------------------------
