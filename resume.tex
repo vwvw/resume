@@ -1,0 +1,257 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Graduate Curriculum Vitae
+% LaTeX Template
+% Version 1.2 (3/28/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rensselaer Polytechnic Institute 
+% (http://www.rpi.edu/dept/arc/training/latex/resumes/)
+%
+% Modified by:
+% Daniel L Marks <xleafr@gmail.com> 3/28/2015
+% 
+% Further modified by:
+% Rohan Bavishi <rohan.bavishi95@gmail.com> 9/20/2016
+%
+% Important note:
+% This template requires the simple_style.cls file to be in the same directory 
+% as the .tex file. The res.cls file provides the resume style used for 
+% structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You can have multiple style options the legal options ones are:
+%
+%   centered:	the name and address are centered at the top of the page 
+%				(default)
+%
+%   line:		the name is the left with a horizontal line then the address to
+%				the right
+%
+%   overlapped:	the section titles overlap the body text (default)
+%
+%   margin:		the section titles are to the left of the body text
+%		
+%   11pt:		use 11 point fonts instead of 10 point fonts
+%
+%   12pt:		use 12 point fonts instead of 10 point fonts
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[mm]{simple_style}  
+
+% Default font is the helvetica postscript font
+\usepackage{helvet}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{xcolor}
+\hypersetup {
+    colorlinks=true,
+    linkcolor=colorlink,
+    filecolor=magenta,      
+    urlcolor=colorlink,
+}
+\usepackage[left=0.7in, right=2in, top=0.9in]{geometry}
+
+% Increase text height
+\textheight=700pt
+
+\begin{document}
+
+%-------------------------------------------------------------------------------
+%	NAME AND ADDRESS SECTION
+%-------------------------------------------------------------------------------
+\name{Rohan Bavishi}
+\qualification{Senior Undergraduate, Computer Science, IIT Kanpur}
+\emailone{rbavishi@iitk.ac.in}
+\emailtwo{rohan.bavishi95@gmail.com}
+\website{http://home.iitk.ac.in/~rbavishi}{\url{home.iitk.ac.in/~rbavishi}}
+\github{https://github.com/rbavishi}{\url{github.com/rbavishi}}
+\phone{+91-73-180-18920}
+
+\address{C-324, Hall-1\\IIT Kanpur\\Kanpur, Uttar Pradesh, India}
+%-------------------------------------------------------------------------------
+
+\begin{resume}
+
+%-------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%-------------------------------------------------------------------------------
+\section{Education}
+\cusemph{Indian Institute of Technology Kanpur}, Uttar Pradesh, India\\
+{\sl Bachelor of Technology}, Computer Science and Engineering, \timeline{Jul' 13 - Jul' 17 (Expected)}\\
+\cusemph{GPA: 9.7/10} (Overall)\\
+\sectionline
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%	RESEARCH SECTION
+%-------------------------------------------------------------------------------
+\section{Research\\Interests}
+\par
+Program Analysis and Verification, Automated Debugging and Synthesis, \\Compiler Optimizations, Decision Procedures
+
+%-------------------------------------------------------------------------------
+%      PUBLICATIONS 
+%-------------------------------------------------------------------------------
+\section{Publications}
+\cusemph{Rohan Bavishi}, Awanish Pandey, Subhajit Roy, ``To Be Precise : Regression Aware Debugging" to appear in \textit{Proceedings of the 2016 ACM International Conference on Object Oriented Programming Systems Languages \& Applications} (OOPSLA), Amsterdam, Netherlands
+
+\cusemph{Rohan Bavishi}, Awanish Pandey, Subhajit Roy, ``Regression Aware Debugging for Mobile Applications" to appear in \textit{Proceedings of the 1$^{st}$ International Workshop on Mobile Development} (Mobile! 2016, part of SPLASH 2016), Amsterdam, Netherlands
+
+\vspace{-2ex}
+\sectionline
+%-------------------------------------------------------------------------------
+%       AWARDS & ACHIEVEMENTS	
+%-------------------------------------------------------------------------------
+\section{Awards \& Achievements}
+Awarded the \cusemph{SIGPLAN PAC Scholarship} for paper presentation at \cusemph{OOPSLA '16}\\
+\cusemph{Academic Excellence Award 2013-14}, IIT Kanpur\\
+Secured an \cusemph{All-India-Rank of 202} in JEE Advanced 2013 amongst 150,000 candidates\\
+Secured an \cusemph{All-India-Rank of 175} in JEE Mains 2013 amongst 20,00,000 candidates\\
+Secured an \cusemph{All-India-Rank of 33} in AMTI-Mathematics Olympiad
+
+\vspace{-2ex}
+\sectionline
+%-------------------------------------------------------------------------------
+
+\section{Research\\Projects}
+\begin{project}
+  \title{New Strategy for Analysis of Concurrent Programs via Sequentialization}
+  \supervisor{Supervisor : Prof. Subhajit Roy}
+  \duration{Aug '16 - Present}
+  \description{
+	- Using \href{http://users.ecs.soton.ac.uk/gp4/cseq/cseq.html}{CSeq} for code-to-code translation of concurrent programs into equivalent sequential ones\\
+	- Devising solving strategies to reduce verification time on existing backends like \href{}{CBMC}\\
+  } 
+\end{project}
+\begin{project}
+  \title{Improving Bug Localization Using Interpolant-Based Proofs}
+  \supervisor{Supervisor : Prof. Subhajit Roy}
+  \duration{Jul '15 - Aug '16}
+  \description{
+	- Devised a new method to improve the quality of bug localizations, in terms of reduced superfluous program locations, for a given set of passing and failing test-cases\\
+	- Interpolants are constructed from passing tests to derive \emph{soft} roadblocks. These roadblocks then discourage localizations violating these interpolants, thereby improving bug localization quality\\
+	- Upto 45\% improvement in localization quality as compared to the state-of-the-art tool BugAssist.\\
+	- \emph{Paper accepted in OOPSLA, one of the premier peer-reviewed conferences in Programming Languages}
+  }
+\end{project}
+\begin{project}
+  \title{Using SAT/QBF-Solvers to Detect Side-Channel Vulnerabilities in Hardware}
+  \supervisor{Supervisors : Prof. Paolo Ienne and Mr. Andrew Becker}
+  \duration{May '16 - Present}
+  \description{
+	- Summer internship project at the Processor Architecture Laboratory, EPFL, Switzerland\\
+	- Studied various side-channel attacks, mitigation techniques and their proofs of effectiveness using formal methods\\
+	- Developed a QBF-Encoding technique to verify whether a cryptographic circuit is secure against a popular side-channel attack based on fault-injection\\
+	- In the process of writing a paper and submitting to a peer-reviewed conference\\
+  }
+\end{project}\newpage
+\begin{project}
+  \title{Implementation of DirectFix in CBMC}
+  \supervisor{Supervisor : Prof. Subhajit Roy}
+  %\links{\href{https://github.com/rbavishi/iCBMC}{Github Link}}
+  \duration{May '15 - Jul '15}
+  \description{
+	- Ported the described \emph{Component-Based-Synthesis} algorithm in \href{https://www.comp.nus.edu.sg/~abhik/pdf/ICSE15-directfix.pdf}{DirectFix} to CBMC\\
+	- Reproduced the experimental results provided in the paper, and devised further optimizations\\
+	- \href{https://github.com/rbavishi/iCBMC}{Github Link}
+  }
+\end{project}
+\vspace{-2ex}
+\sectionline
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%	ACADEMIC PROJECTS SECTION
+%-------------------------------------------------------------------------------
+\section{Academic\\Projects}
+\begin{project}
+\title{Re-Inventing A Median Algorithm for Disk-Resident Data}
+\supervisor{Supervisor : Prof. Surender Baswana}
+\duration{Aug '14 - Nov '14}
+\description{
+	- Re-invented a two-pass \textit{deterministic} algorithm to find the median of large data-sets (approx. 1 TB)\\
+	- The algorithm developed was similar to the one described in the \href{http://polylogblog.files.wordpress.com/2009/08/80munro-median.pdf}{paper} by Munro-Paterson (1980)\\
+	- Carried out extensive tests to evaluate the performance of the algorithm\\
+	- \href{https://drive.google.com/file/d/0B0--s-r8CTxgZTU3RzB3YnhMMVU/view}{Report}
+}
+\end{project}
+\begin{project}
+\title{Peer-to-Peer Dropbox}
+\supervisor{Supervisor : Prof. Subhajit Roy}
+\duration{Aug '13 - Nov '13}
+\description{
+	- A linux application for backing-up and syncing files between two or more peers\\
+	- Users have a shared folder across different machines, with local copies. Changes made in any one copy are synced across all devices\\
+	- Linux \emph{inotify} API used to track changes in the shared folder and \emph{rsync} used to sync the modifications to ensure efficient transfer\\
+	- Multithreading with mutexes used to parallelize syncing and file-monitoring operations\\
+	- \href{https://github.com/rbavishi/P2P-Dropbox}{Github Link}
+}
+\end{project}
+\vspace{-2ex}
+\sectionline
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%	COURSE PROJECTS SECTION
+%-------------------------------------------------------------------------------
+\section{Course\\Projects}
+\begin{project}
+\title{End-to-End Compiler for Perl-like Language}
+\supervisor{Course : Compilers $|$ Supervisor : Prof. Subhajit Roy}
+\duration{Jan '15 - Apr '15}
+\description{
+	- Built an end-to-end compiler that takes a subset of the Perl language and outputs MIPS assembly\\
+	- Implemented Features such as \textit{operator overloading}, \textit{dynamic type-checking}, \textit{variable function arguments}, \textit{hashes}, \textit{lists}, \textit{type-based namespaces} etc.\\
+	- \href{https://github.com/vaishious/comperler}{Github Link}
+}
+\end{project}
+\begin{project}
+\title{Integer Superscalar Processor Simulator based on MIPS-R10K}
+\supervisor{Course : Computer Architecture $|$ Supervisor : Prof. Mainak Chaudhuri}
+\duration{Jan '15 - Apr '15}
+\description{
+	- Implemented a superscalar processor simulator based on the MIPS R10K architecture with support for integer instructions only\\
+	- Implemented support for Out-of-Order execution, multiple instruction issue and commit, precise interrupts and branch-misprediction rollback\\
+	- Configurable parameters supported such as issue width, number of functional units, branch-prediction algorithm, RAS/BTB size, active-list size etc.\\
+	- Performed experiments on various synthesized benchmarks to measure performance gains over an in-order processor design. Repeated the experiment with varying parameter configurations\\
+	- \href{https://drive.google.com/file/d/0B0--s-r8CTxgV21IYjJWTUJOdm8/view?usp=sharing}{Report}
+}
+\end{project}
+\vspace{-2ex}
+\sectionline
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%	COMPUTER SKILLS SECTION
+%-------------------------------------------------------------------------------
+\section{Computer\\Skills}
+\cusemph{Languages}: C, C++, Python, Bash, Verilog, \LaTeX, Assembly (x86, MIPS)
+\\
+\cusemph{SAT/SMT Solvers}: MathSAT, Z3, Yices
+\\
+\cusemph{Research Tools}: CBMC (Proficient), KLEE, CSeq
+
+\vspace{-2ex}
+\sectionline
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%	Interests
+%-------------------------------------------------------------------------------
+\section{Extra Interests}
+\cusemph{Project Euler}: Solved : 257/560 \textit{(India Rank : 11)}\\
+\cusemph{Hobbies}: Competitive Programming, CTF \& Wargames, Quizzing
+%-------------------------------------------------------------------------------
+\end{resume}
+\end{document}
