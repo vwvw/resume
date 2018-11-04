@@ -198,8 +198,8 @@
 \DeclareOption{line}{\@linetrue}
 \DeclareOption{centered}{\@linefalse}
 
-\DeclareOption{mm}{\@margintrue}
 \DeclareOption{overlapped}{\@marginfalse}
+\DeclareOption{mm}{\@margintrue}
 
 \ExecuteOptions{overlapped,centered}
 \ProcessOptions\relax
@@ -215,7 +215,7 @@
 \newtoks\@ta			    	% used by \@append
 \newtoks\undefined@token\undefined@token={}
 
-\usepackage[]{xcolor} % add monochrome to go black & white
+\usepackage{xcolor} % add monochrome to go black & white
 \usepackage{calc}
 \usepackage{tabu}
 
@@ -311,9 +311,9 @@
 \newskip\sectionskip
 \newdimen\resumewidth
 
-\resumewidth=100mm
-\sectionskip=0.5ex plus 1ex minus -.2ex % values stolen from LaTeX
 
+\sectionskip=0.5ex plus 1ex minus -.2ex % values stolen from LaTeX
+\resumewidth=183mm
 \def\newsectionwidth#1{%
 		     \sectionwidth=#1
 		     \textwidth=\resumewidth
@@ -466,7 +466,7 @@
 \let\@@section\relax
 \def\ds@overlapped{\ifx\@@section\relax\newsectionwidth{15mm}\let
   \@@section\unboxed@sectiontitle\fi}
-\def\ds@margin{\ifx\@@section\relax\newsectionwidth{32mm}\let
+\def\ds@margin{\ifx\@@section\relax\newsectionwidth{30mm}\let
   \@@section\boxed@sectiontitle\fi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -495,21 +495,21 @@
 % makes a line of width \textwidth starting at -\hoffset
 
 \def\fullline{
-  \textcolor{lightergray}{\hspace*{-\hoffset}\rule{\sectionwidth}{2.5pt}}
-  \textcolor{lightestgray}{\hspace*{0pt}\rule{\textwidth-\sectionwidth}{2.5pt}}
+  \textcolor{lightergray}{\hspace*{-\hoffset}\rule{\sectionwidth+0.5mm}{2.5pt}}
+  \textcolor{lightestgray}{\hspace*{0pt}\rule{\textwidth-\sectionwidth-0.5mm}{2.5pt}}
   \vspace{-2.5ex}
 }
 
 \def\sectionline{
 	%\textcolor{lightestgray}{\hspace*{-\hoffset}\rule{\resumewidth}{2.5pt}}
-	\textcolor{lightergray}{\hspace*{-\hoffset}\rule{\sectionwidth}{2.5pt}}
-	\textcolor{lightestgray}{\hspace*{0pt}\rule{\textwidth}{2.5pt}}
+	\textcolor{lightergray}{\hspace*{-\hoffset}\rule{\sectionwidth+0.5mm}{2.5pt}}
+	\textcolor{lightestgray}{\hspace*{0pt}\rule{\textwidth-0.5mm}{2.5pt}}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % create a multiline box.
 
-\def\@detailsbox#1{\textcolor{lightgray}{\detailsfont{
+\def\@detailsbox#1{\textcolor{midgray}{\detailsfont{
 			\begin{tabular}[t]{@{}r@{\extracolsep{\fill}}}
 				#1
 			\end{tabular}}}}
@@ -823,7 +823,7 @@
   \renewcommand{\duration}[1]{\def\projduration{##1}}
   \renewcommand{\description}[1]{\def\projdesc{##1}}
 }{
-	\cusemph{\projcompany} - \projtitle, \projlocation \hfill\textcolor{darkgray}{\textit{\projduration}}\\
+	\cusemph{\projcompany} - \projtitle{} - \projlocation \hfill\textcolor{darkgray}{\textit{\projduration}}\\
 	\descriptionbox{\projdesc}
 }
 
