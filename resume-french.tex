@@ -49,7 +49,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[mm]{simple_style}  
+\documentclass[mm, 11pt]{simple_style}  
 
 % Default font is the helvetica postscript font
 \usepackage{helvet}
@@ -57,15 +57,22 @@
 \usepackage{url}
 \usepackage{xcolor}
 \hypersetup {
-    colorlinks=true,
+    colorlinks=false,
     linkcolor=colorlink,
     filecolor=magenta,      
     urlcolor=colorlink,
 }
 \usepackage[a4paper, left=12mm, right=45mm, top=15mm, bottom=15mm]{geometry}
+\usepackage[fristpage=true, color=black, opacity=0.5, angle=90]{background}
+\usepackage[french]{babel}
 
 \begin{document}
 
+\SetBgContents{Version du \today}% Set contents
+\SetBgPosition{ \textwidth / 0.8 - 0.8cm,-24cm/0.8}% Select location
+\SetBgScale{0.8}% Select scale factor of logo
+
+\newsectionwidth{32mm}
 %-------------------------------------------------------------------------------
 %	NAME AND ADDRESS SECTION
 %-------------------------------------------------------------------------------
@@ -93,20 +100,19 @@ Sp\'ecialisation en s\'ecurit\'e informatique\\
 \cusemph{\href{https://www.ece.cmu.edu/}{Carnegie Mellon University (CMU)}} - Pittsburgh PA - USA \timeline{2015-2016}\\
 Programme d'\'echange\\
 \cusemph{\href{https://ic.epfl.ch/en}{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}} - Suisse  \timeline{2013-2016}\\
-{\sl Bachelor en Syst\`emes de communication}\\Moyenne g\'en\'erale: 5.26 / 6\\
+{\sl Bachelor en Syst\`emes de communication} - Moyenne g\'en\'erale: 5.26 / 6\\
 \sectionline
 %-------------------------------------------------------------------------------
 %	RESEARCH SECTION
 %-------------------------------------------------------------------------------
 \section{Exp\'erience\\professionelle}
 \begin{position}
-    \employer{\href{https://chainsolutions.com/}{Chainsolutions}}
+    \employer{\href{https://chainsolutions.com/}{chainSolutions}}
     \title{Blockchain Consultant}
     \location{Z\"urich}
-    \duration{Jan' - Juin 2018 (@ 20\%)}
+    \duration{Jan' - Juin 2018 @ 20\%}
     \description{
-        -\,Design d'architecture pour diff\'erents services pour des clients avec un focus sur la confidentialit\'e.\\
-        \hspace{-1.1ex}-\,Refl\'ections autour de la gestion d'identit\'e digitale.}
+        -\,Design d'architecture de diff\'erents services pour des clients avec un focus sur l'identit\'e digitiale decentralis\'ee et la confidentialit\'e}
 \end{position}\\
 \begin{position}
     \employer{\href{https://compassion.ch}{Compassion Suisse}, ONG}
@@ -121,7 +127,7 @@ Programme d'\'echange\\
     \employer{\href{https://ergon.ch/en}{Ergon Informatik}}
     \title{Security Engineer stagiaire}
     \location{Z\"urich}
-    \duration{Sept' 2017 - Mars 2018 (@ 60\%)}
+    \duration{Sept' 2017 - Mars 2018 @ 60\%}
     \description{
         -\,D\'eveloppement, en Python, d'un outil de blackbox fuzzing pour am\'eliorer la s\'ecurit\'e du \href{https://www.airlock.com/en/products/airlock-waf/}{Web Application Firewall}. Analyse du support des requ\^etes HTTP Multipart. D\'etection de plusieurs erreurs logiques qui auraient pu servir \`a contourner le WAF.
     }
@@ -132,9 +138,9 @@ Programme d'\'echange\\
     \location{Londres, UK}
     \duration{Juin - Ao\^ut 2016}
     \description{
-        -\,D\'eveloppement de graphiques personnalisables pour analyser les statistiques au sein de l'\'equipe Architecture Security.\\
-        \hspace{-1.1ex}-\,Identification des graphiques pertinents et des besoins du management. Impl\'ementation en combinant deux sources de donn\'ees diff\'erentes.\\
-        \hspace{-1.1ex}-\,Backend construit en Java avec myBatis, frontend en AngularJS et Highcharts.
+        -\,D\'eveloppement de graphiques personnalisables pour analyser les statistiques au sein de l'\'equipe Architecture Security.\par
+        -\,Identification des graphiques pertinents et des besoins du management. Impl\'ementation en combinant deux sources de donn\'ees diff\'erentes.\par
+        -\,Backend construit en Java avec myBatis, frontend en AngularJS et Highcharts.
     }
 \end{position}\\
 \sectionline
@@ -162,43 +168,34 @@ Programme d'\'echange\\
   \location{EPFL}
   \description{
 	-\,Augmentaiton des capacit\'es du mutateur de programe pour enelever des voies ch\`eres computationellement ou inutiles.\par
-	-\,\'Ecrit en Python et publi\'e avec Docker sous la supervsion de  \textcolor{darkgray}{\href{https://nebelwelt.net/}{Prof. Mathias Payer}}
+	-\,Th\`ese de master sous la supervsion de \href{https://nebelwelt.net/}{Prof. Mathias Payer}, \'ecrit en Python.
   }
-\end{project}
+\end{project}\\
 \begin{project}
   \title{\href{https://www.ethz.ch/en/the-eth-zurich/global/global-network/eth-studios/new-york-security-challenge-2018.html}{Bloomberg New York Security Challenge}}
   \duration{Juin 2018}
   \location{NY}
   \description{
-    - Comme l'un des gagnants de l'\href{https://blogs.ethz.ch/ETHambassadors/2018/07/26/coding-challenge-inside-bloomberg/}{ETH Codecon}, participation à un projet d'une semaine au sein du \href{https://www.bloomberg.com/careers/technology/}{CTO Office} consistant à l'analyse et la d\'etection d'anomalies dans les traces r\'eseaux de microservices.\\
-  }\\
-\end{project}
+    - Comme l'un des gagnants de l'\href{https://blogs.ethz.ch/ETHambassadors/2018/07/26/coding-challenge-inside-bloomberg/}{ETH Codecon}, participation à un projet d'une semaine au sein du \href{https://www.bloomberg.com/careers/technology/}{CTO Office} consistant à l'analyse et la d\'etection d'anomalies dans les traces r\'eseaux de microservices.
+  }
+\end{project}\\
 \begin{project}
   \title{\href{https://github.com/vwvw/Ethereum-RingCT}{RingCT dans un smart contract Ethereum}}
   \duration{Mars - Sept' 2017}
   \location{ETHZ}
   \description{
 	-\,Impl\'ementation en Solidity d’un smart contract offrant des paiements anonymes similaire \`a ceux de Monero.\par
-	-\,Projet effectu\'e dans le cadre de l’introduction \`a la recherche sous la supervision de \textcolor{darkgray}{\href{http://arthurgervais.com/}{Prof. Arthur Gervais}}.\\
-  }\\
-\end{project}
+	-\,Projet effectu\'e comme introduction \`a la recherche et supervis\'e par \href{http://arthurgervais.com/}{Prof. Arthur Gervais}.
+  }
+\end{project}\\
 \begin{project}
   \title{\href{https://github.com/vwvw/Greenheater}{Greenheater - un chauffage \'electrique intelligent}}
   \duration{Jan' - Mai 2016}
   \location{CMU}
   \description{
 	-\,Automatisation d’un chauffage \'electrique d’appoint profitant des p\'eriodes d’absences pour \'economiser de l’\'energie sans impacter le confort.\par
-	-\,\'Ecrit en Python avec l’apprentissage automatique effectu\'e sur Matlab.\\
-  }\\
-\end{project}
-\begin{project}
-  \title{Transpondeur sans fil sur transmission hertzienne}
-  \duration{Aug' - Dec' 2015}
-  \location{CMU}
-  \description{
-	-\,Programmation d’un syst\`eme de communication digital capable d’envoyer plusieurs dizaines de milliers de bits par seconde sans erreur.\par
-	-\,\'Ecrit en Matlab dans le but de d\'ecouvrir diff\'erents principes de communication digitale.\\
-  }\\
+	-\,\'Ecrit en Python avec l’apprentissage automatique effectu\'e sur Matlab.
+  }
 \end{project}\\
 \sectionline
 %-------------------------------------------------------------------------------
