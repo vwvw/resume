@@ -713,7 +713,7 @@
   \renewcommand{\duration}[1]{\def\projduration{##1}}
   \renewcommand{\description}[1]{\def\projdesc{##1}}
 }{
-	\cusemph{\projtitle}, \projlocation \hfill\textcolor{darkgray}{\textit{\projduration}}\\
+	\cusemph{\projtitle}, \projlocation \hfill \textcolor{darkgray}{\textit{\projduration}}\\
 	\descriptionbox{\projdesc}
 }
 
