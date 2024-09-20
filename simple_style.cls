@@ -217,7 +217,15 @@
 
 \usepackage{xcolor} % add monochrome to go black & white
 \usepackage{calc}
-\usepackage{tabu}
+\usepackage{tabularx}
+\usepackage{fontawesome}
+\usepackage{parskip}
+\usepackage{enumitem}
+\setlist[enumerate]{label=-,
+                    leftmargin=1em, % leftmargin=* if you like to have left margin as in main text
+                    topsep=-3pt,
+                    itemsep=-3pt
+                    }
 
 %\usepackage{changepage}
 
@@ -237,7 +245,7 @@
 \def\@printcentername{\begingroup
   %{\namefont\@name\\\\\qualificationfont\@qualification\par}
   {\namefont\@name}\smallskip\\
-  {\emailfont\@emailone \hspace{1ex}/\hspace{0.1ex} \@phone}\\\par
+  {\emailfont\@emailone \hspace{1em} \@phone \hspace{1em} \@linkedin}\\\par
   
   \@ifundefined{@addressone}{%
     % do nothing
@@ -514,14 +522,15 @@
 				#1
 			\end{tabular}}}}
 
-\def\descriptionbox#1{\textcolor{verydarkgray}{
-			\taburulecolor{lightestgray}	
-			{\tabulinesep=0.5mm
-			\begin{tabu} to \sectionwidth {p{\textwidth-3ex}}
-			\setlength{\parindent}{-1.1ex}
-				#1
-			\end{tabu}}}
-    			\noindent
+\def\descriptionbox#1{
+    {
+      \parbox{\textwidth-1mm}{
+        \begin{enumerate}
+      #1
+
+        \end{enumerate}
+        }
+    }
 }
 
 
@@ -530,14 +539,15 @@
 
 \def\name#1{\def\@name{#1}}
 \def\qualification#1{\def\@qualification{#1}}
-\def\emailone#1{\def\@emailone{\href{mailto:#1}{#1}}}
+\def\emailone#1{\def\@emailone{\href{mailto:#1}{\faEnvelope{} #1}}}
 \def\emailtwo#1{\def\@emailtwo{\href{mailto:#1}{#1}}}
 \def\website#1#2{\def\@website{\href{#1}{#2}}}
 \def\github#1#2{\def\@github{\href{#1}{#2}}}
-\def\phone#1{\def\@phone{\href{tel:#1}{#1}}}
+\def\phone#1{\def\@phone{\href{tel:#1}{\faPhone{} #1}}}
 \def\citizenship#1{\def\@citizenship{#1}}
 \def\birthdate#1{\def\@birthdate{#1}}
-\def\cusemph#1{\textcolor{darkgray}{\textbf{#1}}}
+\def\linkedin#1{\def\@linkedin{\href{https://www.linkedin.com/in/#1/}{\faLinkedinSquare{} #1}}}
+\def\cusemph#1{\textcolor{black}{\textbf{#1}}}
 \def\timeline#1{\hfill\textcolor{midgray}{\textit{#1}}}
 %\def\supervisor#1{\textcolor{midgray}{\textit{#1}}}
 \def\duration#1{\hfill\textcolor{midgray}{\textit{#1}}}
@@ -707,16 +717,6 @@
 	    \skotfi
 	    \let\\=\end@line@tail}}{}
 
-\newenvironment{project}{
-  \renewcommand{\title}[1]{\def\projtitle{##1}}
-  \renewcommand{\location}[1]{\def\projlocation{##1}}
-  \renewcommand{\duration}[1]{\def\projduration{##1}}
-  \renewcommand{\description}[1]{\def\projdesc{##1}}
-}{
-	\cusemph{\projtitle}, \projlocation \hfill \textcolor{darkgray}{\textit{\projduration}}\\
-	\descriptionbox{\projdesc}
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %taken from page 378 of TeXbook but freely hacked
 %
@@ -816,16 +816,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % put the actual job descriptions here
-\newenvironment{position}{
-  \renewcommand{\employer}[1]{\def\projcompany{##1}}
-  \renewcommand{\title}[1]{\def\projtitle{##1}}
-  \renewcommand{\location}[1]{\def\projlocation{##1}}
-  \renewcommand{\duration}[1]{\def\projduration{##1}}
-  \renewcommand{\description}[1]{\def\projdesc{##1}}
-}{
-	\cusemph{\projcompany} - \projtitle{} - \projlocation \hfill\textcolor{darkgray}{\textit{\projduration}}\\
-	\descriptionbox{\projdesc}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DEFAULTS: (the rest of them)
@@ -850,7 +840,7 @@
 \evensidemargin 0pt
 \marginparwidth 0pt
 \parindent 0pt
-\parskip \baselineskip
+\parskip 6pt
 \setcounter{secnumdepth}{0}
 \def\@listI{\leftmargin\leftmargini
 \topsep 0pt 
@@ -867,4 +857,36 @@
 \body\\
 \end{format}
 
+\newenvironment{project}{
+  \renewcommand{\title}[1]{\def\projtitle{##1}}
+  \renewcommand{\location}[1]{\def\projlocation{##1}}
+  \renewcommand{\duration}[1]{\def\projduration{##1}}
+  \renewcommand{\description}[1]{\def\projdesc{##1}}
+}{
+	\cusemph{\projtitle}, \projlocation \hfill \textcolor{darkgray}{\textit{\projduration}}\par
+	\descriptionbox{
+    \projdesc}\par
+}
+
+\newenvironment{position}{
+  \renewcommand{\employer}[1]{\def\projcompany{##1}}
+  \renewcommand{\title}[1]{\def\projtitle{##1}}
+  \renewcommand{\location}[1]{\def\projlocation{##1}}
+  \renewcommand{\duration}[1]{\def\projduration{##1}}
+  \renewcommand{\description}[1]{\def\projdesc{##1}}
+}{\cusemph{\projtitle} - \projcompany{} - \projlocation \hfill\textcolor{darkgray}{\textit{\projduration}}
+	\descriptionbox{\projdesc}\par
+}
+
+\newenvironment{research}{
+  \renewcommand{\title}[1]{\def\projtitle{##1}}
+  \renewcommand{\location}[1]{\def\projlocation{##1}}
+  \renewcommand{\description}[1]{\def\projdesc{##1}}
+}{\cusemph{\projtitle} \hfill\textcolor{darkgray}{\textit{\projlocation}}
+	\descriptionbox{\projdesc}\par
+}
+
 \let\section\@@section
+
+
+\renewcommand{\labelitemi}{-}

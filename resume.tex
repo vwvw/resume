@@ -53,16 +53,8 @@
 
 % Default font is the helvetica postscript font
 \usepackage{helvet}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{url}
-\usepackage{rotating}
-\usepackage{xcolor}
-\hypersetup {
-    colorlinks=false,
-    linkcolor=colorlink,
-    filecolor=magenta,      
-    urlcolor=colorlink,
-}
 \usepackage[a4paper, left=12mm, right=45mm, top=15mm, bottom=15mm]{geometry}
 \usepackage[fristpage=true, color=black, opacity=0.5, angle=90]{background}
 
@@ -79,157 +71,211 @@
 \name{Nicolas Badoux}
 %\qualification{Senior undergraduate ETHZ student}
 \emailone{n.badoux@hotmail.com}
-%\emailtwo{badouxn@ethz.ch}
+\emailtwo{nicolas.badoux@epfl.ch}
 %\website{https://nicolasbadoux.com}{\url{nicolasbadoux.com}}
 %\github{https://github.com/vwvw}{\url{github.com/vwvw}}
 \phone{+41 79 914 00 47}
-\citizenship{Swiss citizen}
+\linkedin{nbadoux}
+\citizenship{Swiss citizen - married}
 \birthdate{Born 06.11.1994}
 
-\address{\href{https://goo.gl/maps/bxwsN3DiRHF2}{Grand-Rue 8}
-    \\\href{https://goo.gl/maps/bxwsN3DiRHF2}{1315} \href{https://goo.gl/maps/bxwsN3DiRHF2}{La Sarraz}
-    \\\href{https://goo.gl/maps/bxwsN3DiRHF2}{CH - Switzerland}
+\address{\href{https://maps.app.goo.gl/kmh2wtaNsmxrcqGc8}{Rue de la Gare 21}\\
+         \href{https://maps.app.goo.gl/kmh2wtaNsmxrcqGc8}{1030} 
+         \href{https://maps.app.goo.gl/kmh2wtaNsmxrcqGc8}{Bussigny}\\
+         \href{https://maps.app.goo.gl/kmh2wtaNsmxrcqGc8}{CH - Switzerland}
 }
 
 \begin{resume}
 %-------------------------------------------------------------------------------
 \section{Education}
-\cusemph{\href{https://ic.epfl.ch/en}{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}} - Switzerland  \timeline{2020-ongoing}\\
-{\sl PhD student in Computer Science} in the \href{hexhive.epfl.ch}{Hexhive} group\\
-Under supervision from \href{nebelwelt.net}{Prof. Mathias Payer}\\
-\cusemph{\href{https://www.inf.ethz.ch/}{Eidgen\"ossische Technische Hochschule Z\"urich (ETHZ)}} - Switzerland \timeline{2016-2019}\\
-{\sl Master of Science ETH in Computer Science}\\
-Specialization in Information Security\\
-\cusemph{\href{https://ic.epfl.ch/en}{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}} - Switzerland  \timeline{2013-2016}\\
-{\sl Bachelor in Communication Sciences}, GPA: 5.26 / 6\\
-\cusemph{\href{https://www.ece.cmu.edu/}{Carnegie Mellon University (CMU)}} - Pittsburgh PA, USA \timeline{2015-2016}\\
-Two semester exchange program\\
+\cusemph{PhD candidate in Computer Science}
+\timeline{2020-\textit{2025}}\\
+\textsl{\href{https://ic.epfl.ch/en}{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}} - Switzerland\\
+- Supervisor: \href{https://nebelwelt.net/}{Prof. Mathias Payer} @ \href{https://hexhive.epfl.ch}{HexHive}\\
+- Topic: Compiler-based defenses and testing, system security\\
+%-------------------------------------------------------------------------------
+\cusemph{Master of Science ETH in Computer Science}
+\timeline{2016-2019}\\
+\textsl{\href{https://www.inf.ethz.ch/}{Eidgen\"ossische Technische Hochschule Z\"urich (ETHZ)}} - Switzerland\\
+- Specialization in Information Security, GPA: 5.39/6\\
+%-------------------------------------------------------------------------------
+\cusemph{Bachelor in Communication Sciences}
+\timeline{2013-2016}\\
+\textsl{\href{https://ic.epfl.ch/en}{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}} - Switzerland\\
+- Exchange program @
+\cusemph{\href{https://www.ece.cmu.edu/}{Carnegie Mellon University}} - USA, GPA: 5.26/6
+\timeline{2015-2016}\\
+\sectionline
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%	RESEARCH SECTION
+%-------------------------------------------------------------------------------
+\section{Research Experience}
+\begin{research}
+    \title{\texttt{type++}: prohibiting type confusion with inline type information}
+    \location{NDSS'25}
+    \description{%
+      \item By inlining the type in each C++ object, we create a compiler-based
+      mitigation against type confusion attacks allowing derived cast to be checked at
+      runtime while requiring minimal code adaptations. We evaluate our prototype against the state-of-the-art.
+      \item Built on top of LLVM, \texttt{type++} protects from
+      type confusions with less than 3\% overhead.
+    }
+\end{research}
+\begin{research}
+    \title{\textsc{libErator}: Balancing library fuzzing without consumer code}
+    \location{Submitted @ FSE'25}
+    \description{%
+      \item We automate the generation of library fuzzing drivers and allow for balancing resources between driver generation and fuzzing.
+      \item From insights gathered through LLVM passes, we build valid C drivers using API functions. 
+    }
+\end{research}
+\begin{research}
+    \title{Bypassing LLVM-CFI cast protection }
+    \location{Ongoing}
+    \description{
+      \item We present a novvel attack against LLVM-CFI, bypassing the cast protection for C++.
+    }
+\end{research}
+\vspace{-\parskip}
+\sectionline
+%-------------------------------------------------------------------------------
+%  SKILLS SECTION
+%-------------------------------------------------------------------------------
+\section{Skills}
+\cusemph{Programming Languages}: Python, C++, \LaTeX, Bash\\
+\cusemph{Software}: LLVM, GDB, libfuzzer, Linux, Docker\\
+\cusemph{Spoken Languages}: French (native), English, Swiss-German, German\\
 \sectionline
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 %	WORK SECTION
 %-------------------------------------------------------------------------------
-\section{Work Experience}
+\section{Industry Experience}
 \begin{position}
     \employer{\href{https://digger.ch}{Fondation Digger}\normalfont{, NGO}}
     \title{Software Engineer}
     \location{Tavannes, CH}
-    \duration{Aug 2019 - March 2020}
-    \description{-\,Development of an virtual overlay for a video stream to be stream in VR  for demining work.\par
-    -\,Extensive use of \href{https://opencv.org}{OpenCV} and \href{https://unity.com/}{Unity} in an Agile environment for my \href{https://en.wikipedia.org/wiki/Swiss_Civilian_Service}{mandatory civil Service}}
-\end{position}\\
-\begin{position}
-    \employer{\href{https://chainsolutions.com/}{chainSolutions}}
-    \title{Blockchain Consultant}
-    \location{Z\"urich, CH}
-    \duration{Jan' - June 2018 @ 20\%}
+    \duration{Aug' 2019 - March 2020}
     \description{
-        -Undertook the conception of the technical foundations for different clients project.\par
-        -Designed part of a global self-sovereign identity management system.}
-\end{position}\\
+      \item Developed a virtual overlay for remotely removing explosives with the help of \href{https://opencv.org}{OpenCV} and \href{https://unity.com/}{Unity} in an Agile environment as part of \href{https://en.wikipedia.org/wiki/Swiss_Civilian_Service}{mandatory civil service}.
+    }
+\end{position}
 \begin{position}
     \employer{\href{https://compassion.ch}{Compassion Suisse}\normalfont{, NGO}}
     \title{Software Engineer}
     \location{Yverdon, CH}
     \duration{Mar' - May 2018}
     \description{
-        -Contributed to  \href{https://github.com/CompassionCH/compassion-switzerland}{opensource} modules for the \href{https://www.odoo.com/}{Odoo} ERP. Written in Python in an Agile team as part of my \href{https://en.wikipedia.org/wiki/Swiss_Civilian_Service}{mandatory Swiss civil Service}
+        \item As part of my
+        \href{https://en.wikipedia.org/wiki/Swiss_Civilian_Service}{mandatory
+        Swiss civil Service}, contributed to
+        \href{https://github.com/CompassionCH/compassion-switzerland}{opensource}
+        Python modules for the \href{https://www.odoo.com/}{Odoo ERP}.
     }
-\end{position}\\
+\end{position}
 \begin{position}
     \employer{\href{https://ergon.ch/en}{Ergon Informatik}}
     \title{Security Engineer Intern}
     \location{Z\"urich, CH}
-    \duration{Sept' 2017 - Mar' 2018 @ 60\%}
+    \duration{60\% - Sept' 2017 - Mar' 2018}
     \description{
-        -Development in Python of a blackbox fuzzer to improve security of Ergon \href{https://www.airlock.com/en/products/airlock-waf/}{Web Application Firewall}, Airlock.\par
-        -Use of \href{https://gitlab.com/akihe/radamsa}{Radamsa} to generate malformed HTTP multipart requests resulting in the correction of multiple logic bugs.
+        \item Developed a blackbox fuzzer in Python to find bugs in Ergon's \href{https://www.airlock.com/en/products/airlock-waf/}{Web Application Firewall}.
     }
-\end{position}\\
+\end{position}
 \begin{position}
     \employer{\href{https://www.morganstanley.com/}{Morgan Stanley}}
     \title{Technology Summer Analyst}
     \location{London, UK}
     \duration{June - Aug' 2016}
     \description{
-        -Developed customizable charts providing visualization of the statistics of the Architecture Security team.\par
-        -Identified the important charts and use cases. Implemented charts in AngularJS with a Java EE backend.
+        \item Developed charts in AngularJS for statistics of the Architecture Security team.
     }
-\end{position}\\
-\sectionline
-\section{Relevant courses}
-    \begin{tabular}{lllll}
-        \href{http://www.syssec.ethz.ch/education/sown/sown_AS16.html}{Security of Wireless Network} & \href{http://www.syssec.ethz.ch/education/system_security/system_security_as16.html}{System Security}\\
-        \href{https://netsec.ethz.ch/courses/netsec-2016/}{Network Security} & \href{http://www.infsec.ethz.ch/education/as2016.html}{Applied Security Lab} \\
-        \href{https://www.cs.cmu.edu/~10601b/}{Introduction to Machine Learning} & \href{https://ndal.ethz.ch/courses/acn.html}{Advanced Computer Networks}\\
-    \end{tabular}\\
-\sectionline
-%-------------------------------------------------------------------------------
-%  SKILLS SECTION
-%-------------------------------------------------------------------------------
-\section{Skills}
-\cusemph{Programming Languages}: Python, LLVM, Java, Matlab, Solidity, \LaTeX\\
-\cusemph{Spoken Languages}: French (native), English, Swiss-German, German\\
+\end{position}
+\vspace{-\parskip}
 \sectionline
 %-------------------------------------------------------------------------------
 %  PROJECTS SECTION
 %-------------------------------------------------------------------------------
-\section{Projects}
-%
-\begin{project}
-  \title{MinFuzz: Program simplification to drive fuzzing effectiveness}
-  \duration{Winter 2018}
-  \location{EPFL}
-  \description{
-    -Development of automatic code pruning targeting checksum, decryption, and decompression functions to maximize number of execution and code coverage exercised.\par
-    -Resulting in a 50\% speed up of targeted binaries and coverage up to 20\% higher than AFL.\par
-	-6 months Master Thesis written in Python under the supervision of \href{https://nebelwelt.net/}{Prof. Mathias Payer}
-  }
-\end{project}
-%
-\begin{project}
-  \title{\href{https://www.ethz.ch/en/the-eth-zurich/global/global-network/eth-studios/new-york-security-challenge-2018.html}{Bloomberg New York Security Challenge}}
-  \duration{June 2018}
-  \location{New York, USA}
-  \description{
-    -As a winner of \href{https://blogs.ethz.ch/ETHambassadors/2018/07/26/coding-challenge-inside-bloomberg/}{ETH Codecon}, participated in a week-long project at Bloomberg \href{https://www.bloomberg.com/careers/technology/}{CTO Office}, analyzing network traces of microservices for security anomalies.\\
-  }\\
-\end{project}
-%
-\begin{project}
-  \title{\href{https://github.com/vwvw/Ethereum-RingCT}{RingCT in an Ethereum smart contract}}
-  \duration{Mar' - Sept' 2017}
-  \location{ETHZ}
-  \description{
-	-Implemented in Solidity a smart contract executing Monero-like confidential transactions.\par
-	-Part of an introduction to Research under the supervision of \href{http://arthurgervais.com/}{Prof. Arthur Gervais}.\\
-  }\\
-\end{project}\\
+%\section{Projects}
+%%
 %\begin{project}
-%  \title{\href{https://github.com/vwvw/Greenheater}{Greenheater - a smart electric heater}}
-%  \duration{Jan' - May 2016}
-%  \location{CMU}
+%  \title{MinFuzz: Program simplification to drive fuzzing effectiveness}
+%  \duration{Winter 2018}
+%  \location{EPFL}
 %  \description{
-%	-Automated a personal space heater to take advantage of the periods where the user is not in the room to save electricity without impacting his comfort.Written mostly in Python.\\
-%  }\\
-%\end{project}\\
-% \begin{project}
-%   \title{Transpondeur sans fil sur transmission hertzienne}
-%   \duration{Aug' - Dec' 2015}
-%   \location{CMU}
-%   \description{
-% 	-Programmation d’un syst\`eme de communication digital capable d’envoyer plusieurs dizaines de milliers de bits par seconde sans erreur.\\
-% 	\hspace{-1.1ex}-\'Ecrit en Matlab dans le but de d\'ecouvrir diff\'erents principes de communication digitale.\\
-%   }\\
-% \end{project}\\
+%    \item Development of automatic code pruning targeting checksum, decryption, and decompression functions to maximize number of execution and code coverage exercised.
+%
+%    \item Resulting in a 50\% speed up of targeted binaries and coverage up to 20\% higher than AFL.
+%  }
+%\end{project}
+%%
+%\begin{project}
+%  \title{\href{https://www.ethz.ch/en/the-eth-zurich/global/global-network/eth-studios/new-york-security-challenge-2018.html}{Bloomberg New York Security Challenge}}
+%  \duration{June 2018}
+%  \location{New York, USA}
+%  \description{
+%    \item As a winner of
+%    \href{https://blogs.ethz.ch/ETHambassadors/2018/07/26/coding-challenge-inside-bloomberg/}{ETH
+%    Codecon}, participated in a week-long project at Bloomberg
+%    \href{https://www.bloomberg.com/careers/technology/}{CTO Office}, analyzing
+%    network traces of microservices for security anomalies.
+%  }
+%\end{project}
+%%
+%\begin{project}
+%  \title{\href{https://github.com/vwvw/Ethereum-RingCT}{RingCT in an Ethereum smart contract}}
+%  \duration{Mar' - Sept' 2017}
+%  \location{ETHZ}
+%  \description{
+%	\item Implemented in Solidity a smart contract executing Monero-like confidential transactions.\par
+%	\item Part of an introduction to Research under the supervision of \href{https://arthurgervais.com/}{Prof. Arthur Gervais}.
+%  }
+%\end{project}
+%\sectionline
+%-------------------------------------------------------------------------------
+%  TEACHING SECTION
+%-------------------------------------------------------------------------------
+\section{Teaching Assistant}
+%
+
+{
+\cusemph{CS-119 - Information, Calcul \& Communication} \hfill\textit{ 2022 \& 2024}
+  \parskip 0pt
+
+\cusemph{CS-323 - Operating System} \hfill \textit{2021}
+
+\cusemph{COM-402 - Information Security \& Privacy} \hfill \textit{2023}
+
+\cusemph{CS-412 - Software Security} \hfill \textit{2021 \& 2023}
+}\\
 \sectionline
+%\section{Talks}
+%
+%\cusemph{NDSS'25} - \texttt{type++}: prohibiting type confusion with inline type information \timeline{2025}
+%
+%\sectionline
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
 %	Interests
 %-------------------------------------------------------------------------------
 \section{Activities}
-\cusemph{\href{https://www.interjeunes.net/explosion-camp/}{Winter Camp Leader}} - Grimentz, CH \timeline{2014 \& 2017}\\
-Camp with 110 teenagers/young adults during a week. Built a team, prepared the event, managed the team and was in charge of the authority during the week.\\
+\begin{research}
+  \title{Board Member, Treasurer \textnormal{- \href{https://www.gbeu.ch}{Groupes Bibliques des Écoles et Universités}}}
+  \location{2023 - present}
+  \description{%
+    \item Define the vision, hiring of the general secretary, and budget planning ($\simeq$ 500kCHF).
+  }
+\end{research}
+\begin{research}
+  \title{Camp Leader \textnormal{- \href{https://www.interjeunes.net/explosion-camp}{Interjeunes} \& \href{https://ligue.ch}{Ligue pour la Lecture de la Bible}}}
+  \location{2014, 2017, 2021, 2022}
+  \description{
+    \item Lead camps with up 110 kids/young adults for a week. Built a team, prepared the event, managed the team and was the authority in charge during the week.
+  }
+\end{research}
+
+
 \end{resume}
 \end{document}
