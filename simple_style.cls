@@ -4,6 +4,8 @@
 
 \typeout{Document Style `res' <26 Sep 89>.}
 
+
+\usepackage{fancyhdr}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % res.sty
 %
@@ -525,10 +527,10 @@
 \def\descriptionbox#1{
     {
       \parbox{\textwidth-1mm}{
-        \begin{enumerate}
+        \begin{itemize}
       #1
 
-        \end{enumerate}
+        \end{itemize}
         }
     }
 }
@@ -631,6 +633,7 @@
 
 \def\employer#1{\def\@employer{\print@employer{#1}}}
 \def\location#1{\def\@location{\print@location{#1}}}
+\def\authors#1{\def\@authors{\print@authors{#1}}}
 \def\dates#1{\def\@dates{\print@dates{#1}}}
 \def\title#1{\def\@title{\print@title{#1}}}
 
@@ -705,6 +708,9 @@
   \def\location##1{\advance\c@numberofcolumns 1
 		   \@format{location}{##1}
 		   \append@tabular@text{location}}
+  \def\authors##1{\advance\c@numberofcolumns 1
+		   \@format{authors}{##1}
+		   \append@tabular@text{authors}}
   \def\dates##1{\advance\c@numberofcolumns 1
 		\@format{dates}{##1}
 		\append@tabular@text{dates}}
@@ -832,7 +838,7 @@
 \@secpenalty = -500
 \topmargin 0pt
 \headheight 0pt
-\headsep 0pt
+\headsep 30pt
 \textheight 9in
 \parindent 0pt
 \topmargin 0in
@@ -840,20 +846,30 @@
 \evensidemargin 0pt
 \marginparwidth 0pt
 \parindent 0pt
-\parskip 6pt
 \setcounter{secnumdepth}{0}
-\def\@listI{\leftmargin\leftmargini
-\topsep 0pt 
-\parskip 0pt
-\partopsep 2pt plus 2pt
-\parsep 2pt plus 2pt
-\itemsep \parsep}
 
-\pagestyle{empty}  % don't want page numbers
+
+\def\@listI{
+  \leftmargin 10pt
+  \topsep 0pt 
+  \parskip 2pt
+  \partopsep 2pt plus 2pt
+  \parsep 2pt plus 2pt
+  \itemsep 0pt
+}
+
+\pagestyle{fancy}  
+\fancyhead{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{lastpage}
+\fancyfoot[R]{Page \thepage/2}
+
 
 \begin{format}
 \title{l}\employer{r}\\
 \location{l}\dates{r}\\
+\authors{l}
 \body\\
 \end{format}
 
@@ -879,6 +895,16 @@
 }
 
 \newenvironment{research}{
+  \renewcommand{\title}[1]{\def\projtitle{##1}}
+  \renewcommand{\location}[1]{\def\projlocation{##1}}
+  \renewcommand{\authors}[1]{\def\projauthors{##1}}
+  \renewcommand{\description}[1]{\def\projdesc{##1}}
+}{\cusemph{\projtitle} \hfill\textcolor{darkgray}{\textit{\projlocation}}
+  \\\textit{Authors:} \projauthors{}\\
+	\descriptionbox{\projdesc}\par
+}
+
+\newenvironment{extra}{
   \renewcommand{\title}[1]{\def\projtitle{##1}}
   \renewcommand{\location}[1]{\def\projlocation{##1}}
   \renewcommand{\description}[1]{\def\projdesc{##1}}
