@@ -896,13 +896,14 @@
 	\descriptionbox{\projdesc}\par
 }
 
+\newcommand{\authorsText}{Authors}
 \newenvironment{research}{
   \renewcommand{\title}[1]{\def\projtitle{##1}}
   \renewcommand{\location}[1]{\def\projlocation{##1}}
   \renewcommand{\authors}[1]{\def\projauthors{##1}}
   \renewcommand{\description}[1]{\def\projdesc{##1}}
 }{\cusemph{\projtitle} \hfill\textcolor{darkgray}{\textit{\projlocation}}
-  \\\textit{Authors:} \projauthors{}\\
+  \\\textit{\authorsText{}:} \projauthors{}\\
 	\descriptionbox{\projdesc}\par
 }
 
