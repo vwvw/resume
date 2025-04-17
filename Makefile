@@ -6,10 +6,13 @@ all:
 	rubber --shell-escape -d $(PAPER_NAME_FRENCH).tex
 
 push:
-	cp resume.pdf ~/Documents/website/cv_Nicolas_Badoux.pdf 
-	cd ~/Documents/website && git add cv_Nicolas_Badoux.pdf
-	git push
-	cd -
+	cp resume.pdf ~/Documents/website/resume_Nicolas_Badoux.pdf 
+	cp resume-french.pdf ~/Documents/website/cv_Nicolas_Badoux.pdf 
+	cd ~/Documents/website && \
+		git add resume_Nicolas_Badoux.pdf cv_Nicolas_Badoux.pdf && \
+		git commit -m"updade cv" && \
+		git push && \
+		cd -
 
 clean:
 	rm -f $(PAPER_NAME).aux $(PAPER_NAME).bbl $(PAPER_NAME).blg
