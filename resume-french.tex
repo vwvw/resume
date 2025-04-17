@@ -58,9 +58,11 @@
 \usepackage[a4paper, left=12mm, right=45mm, top=15mm, bottom=15mm]{geometry}
 \usepackage[fristpage=true, color=black, opacity=0.5, angle=90]{background}
 \usepackage[ddmmyyyy]{datetime}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \renewcommand{\dateseparator}{.}
 \renewcommand{\authorsText}{Auteurs}
-\fancyfoot[L]{\hspace{-3cm}\footnotesize{\textcolor{gray}{En date du \today. Version actuelle: \href{https://nicolasbadoux.com/cv}{nicolasbadoux.com/cv}}}}% Set contents
+\fancyfoot[L]{\hspace{-3cm}\footnotesize{\textcolor{gray}{En date du \today. Version actuelle: \href{https://nicolasbadoux.com/cv-fr}{nicolasbadoux.com/cv-fr}}}}% Set contents
 
 \begin{document}
 
@@ -138,6 +140,7 @@
     \location{\href{https://www.ndss-symposium.org/ndss2025/}{NDSS'25}}
     \authors{\textbf{Nicolas Badoux}, Flavio Toffalini, Yuseok Jeon, \& Mathias Payer.}
     \description{%
+    \vspace{-0.15cm}
       \item \textit{Distinction des meilleurs articles} (top 5\%).
       %
       \item En C++, un downcast incorrect peut mener à des vulnérabilités sévères.
@@ -161,7 +164,7 @@
     \location{\href{https://conf.researchr.org/home/fse-2025}{FSE'25}}
     \authors{Flavio Toffalini, \textbf{Nicolas Badoux}, Zurab Tsinadze, \& Mathias Payer.}
     \description{%
-    \vspace{-0.1cm}
+    \vspace{-0.15cm}
       \item \'Ecrire des fuzz drivers, des séquences d'appel à une librairie pour du fuzzing, est complexe.
       % 
       \item \textsc{libErator} automatise leur création
@@ -180,8 +183,9 @@
     \authors{\textbf{Nicolas Badoux}, Flavio Toffalini, \& Mathias Payer.}
     \location{\href{https://www.dimva.org/dimva2025/}{DIMVA'25}}
     \description{%
+    \vspace{-0.15cm}
       \item En C++, les conversions entre \texttt{void*} et des pointeurs typés sont courantes mais,
-      si le type de destination diffère de celui d'origine, elles peuvent amener à la corruption de la mémoire.
+      si le type de destination diffère de celui d'origine, elles peuvent mener à de la mémoire corrompue.
       %
       \item En étendant la protection de type++ à tous les types, Sourcerer est le premier sanitizer complet pour ces erreurs. 
       Avec un ralentissement de seulement 5\% en moyenne, nous conduisons la première campagne de fuzzing visant spécifiquement les confusions de types.
