@@ -70,7 +70,7 @@
 %
 %   \address{text}
 %		defines your address
-%		this can be called twice if you have two addresses use \\'s to indicate 
+%	this can be called twice if you have two addresses use \\'s to indicate 
 %		where either line breaks or	comas should go
 %
 %   \opening
@@ -221,6 +221,7 @@
 \usepackage{calc}
 \usepackage{tabularx}
 \usepackage{fontawesome}
+\usepackage{multirow}
 \usepackage{parskip}
 \usepackage{enumitem}
 \setlist[enumerate]{label=-,
@@ -252,7 +253,7 @@
   \@ifundefined{@addressone}{%
     % do nothing
   }{
-	  \vspace{-17ex}
+	  \vspace{-15ex}
 	  \leavevmode\hbox to 
 	  \textwidth{\hfil\@detailsbox{\@addressone\\
 			         %      \@emailone\ %$|$ \@emailtwo
@@ -261,7 +262,7 @@
 				       %Github : \@github\\
 				    %   \@phone\\
 				       \@citizenship\\
-				       \@birthdate\\\\}}\par
+				       \@birthdate}}\par
   }%
   % Add a horizontal line after name
   \color{lightestgray}\fullline
@@ -519,10 +520,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % create a multiline box.
 
-\def\@detailsbox#1{\textcolor{midgray}{\detailsfont{
-			\begin{tabular}[t]{@{}r@{\extracolsep{\fill}}}
-				#1
-			\end{tabular}}}}
+\def\@detailsbox#1{
+  \textcolor{midgray}{\detailsfont{
+      \begin{tabular}[t]{@{}rr@{\extracolsep{\fill}}}
+        #1
+      \end{tabular} 
+  }}
+}
 
 \def\descriptionbox#1{
     {
