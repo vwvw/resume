@@ -262,7 +262,7 @@
 				       %Github : \@github\\
 				    %   \@phone\\
 				       \@citizenship\\
-				       \@birthdate}}\par
+				       \@birthdate\\}}\par
   }%
   % Add a horizontal line after name
   \color{lightestgray}\fullline
@@ -522,7 +522,7 @@
 
 \def\@detailsbox#1{
   \textcolor{midgray}{\detailsfont{
-      \begin{tabular}[t]{@{}rr@{\extracolsep{\fill}}}
+      \begin{tabular}[t]{@{}r@{\extracolsep{\fill}}}
         #1
       \end{tabular} 
   }}
