@@ -867,7 +867,7 @@
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \usepackage{lastpage}
-
+\setlength{\footskip}{-10pt} 
 \fancyfoot[L]{\hspace{-3cm}\footnotesize{\textcolor{gray}{As of \today. Latest: \href{https://nicolasbadoux.com/cv}{nicolasbadoux.com/cv}}}}% Set contents
 \fancyfoot[R]{\footnotesize{\textcolor{gray}{Page \thepage/2}}}
 
